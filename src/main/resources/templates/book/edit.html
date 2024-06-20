@@ -28,7 +28,7 @@
                     <label class="form-label" for="category">Category:</label>
                     <select class="form-control" th:field="*{category.id}" id="category" >
                         <option value="">-- Select Category --</option>
-                        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"  th:selected="${category.id ==book.category.id}"></option>
+                        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}" th:selected="${category.id ==book.category.id}"></option>
                     </select>
                 </div>
                 <input type="submit" class="btn btn-primary" value="Cập nhật">

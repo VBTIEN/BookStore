@@ -47,7 +47,13 @@ public class BookController {
     }
 
     /*Delete*/
-    @GetMapping("/delete/{id}")
+    /*@GetMapping("/delete/{id}")
+    public String deleteBook(@PathVariable("id") long id){
+        bookService.deleteBook(id);
+        return "redirect:/books";
+    }*/
+    
+    @DeleteMapping("/delete/{id}")
     public String deleteBook(@PathVariable("id") long id){
         bookService.deleteBook(id);
         return "redirect:/books";
@@ -60,6 +66,13 @@ public class BookController {
         model.addAttribute("categories", categoryService.getAllCategories());
         return "book/edit";
     }
+    
+    /*@GetMapping("/edit")
+    public String editBookForm(long id, Model model) {
+        model.addAttribute("book", bookService.getBookById(id));
+        model.addAttribute("categories", categoryService.getAllCategories());
+        return "book/edit";
+    }*/
 
     @PostMapping("/edit/{id}")
     public String editBook(@ModelAttribute("book") Book book) {
